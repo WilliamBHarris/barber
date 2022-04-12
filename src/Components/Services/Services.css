@@ -1,0 +1,52 @@
+.servicesMain {
+  min-height: 100%;
+  background: white;
+}
+
+.servicesTitle {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 40px;
+  letter-spacing: -2px;
+  font-family: "Cerulean NF", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+}
+
+.servicesBox {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  height: 76vh;
+  width: 50%;
+  margin: auto;
+  font-family: "Cerulean NF", sans-serif;
+  text-align: center;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  line-height: 30px;
+}
+
+.services h2 {
+  font-size: 24px;
+  letter-spacing: -1px;
+  font-weight: 800;
+  margin-bottom: 0px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.services i {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.services p {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 20px;
+  font-family: "GT-America-Regular",sans-serif;
+}

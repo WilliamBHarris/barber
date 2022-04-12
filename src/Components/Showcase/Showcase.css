@@ -1,0 +1,67 @@
+.showcaseMain {
+    height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.showBox1 {
+    height: 100%;
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/barber2.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: -500px;
+    opacity: 1;
+}
+
+.showBox2 {
+    background: white;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showcaseTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 150px;
+    color: red;
+    letter-spacing: 5px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    z-index: 1;
+    font-family: 'Anton', sans-serif;
+}
+
+.barber2 {
+    background: rgb(0, 0, 0, .2);
+    border-radius: 5px;
+    min-height: clamp(2vw, 40%, 10vh);
+    width: 50%;
+    background-position: center;
+    padding: 15px 10px 0 10px; 
+}
+
+.downArrow {
+    background: white;
+    height: 70px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -30px;
+    color: black;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

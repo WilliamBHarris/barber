@@ -1,0 +1,38 @@
+.mainNav {
+    height: 7vh;
+    position: fixed;
+    top: 3%;
+    right: 0;
+    width: 100%;
+}
+.logo {
+    position: absolute;
+    color: black;
+    text-decoration: none;
+    top: 5%;
+    left: 3%;
+    z-index: 2;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 5px 5px;
+    background-color:rgba(255, 255, 255, 0.3);
+    font-family: "GT-America-Regular",sans-serif;
+}
+
+.navItems {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    height: 7vh;
+}
+
+.navItems a {
+    text-decoration: none;
+    color: black;
+    padding-right: 60px;
+    font-size: 17px;
+    font-family: "GT-America-Regular",sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}

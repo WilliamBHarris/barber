@@ -1,0 +1,21 @@
+.aboutMain {
+    height: 100%;
+    background-color: #fbf8f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutBox {
+    height: 100vh;
+    width: 60%;
+    line-height: 500%;
+    display: flex;
+    align-items: center;
+}
+
+.aboutBox h1 {
+    font-family: "Cerulean NF", sans-serif;
+    font-weight: normal;
+    font-size: 3.1rem;
+}

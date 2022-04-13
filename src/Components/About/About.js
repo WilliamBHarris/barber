@@ -6,12 +6,7 @@ const About = () => {
     <div className="aboutMain" id='about'>
       <div className="aboutBox">
         <h1>
-          SHED is a neighborhood barbershop located in the Bouldin and Holly
-          neighborhoods of Austin, TX. We offer traditional services and do them
-          right. Book your appointment and come by to sip on a beer from Austin
-          Beerworks, kick back to a rotating selection of vinyl, shop from our
-          curated clothing selection, and enjoy a tailored cut just for you from
-          one of our incredible barbers.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
         </h1>
       </div>
     </div>

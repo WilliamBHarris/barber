@@ -10,44 +10,28 @@ const Services = () => {
         <div className="services">
           <h2>Haircut</h2>
           <p>
-            Tailored haircut with optional hot lather and straight razor neck
-            shave
-            <br />
-            *If this is your first cut back since COVID began please book a Long
-            Cut
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
         </div>
         <div className="services">
           <h2>Styling</h2>
           <p>
-            Tailored haircut with optional hot lather and straight razor neck
-            shave
-            <br />
-            *If this is your first cut back since COVID began please book a Long
-            Cut
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
         </div>
         <div className="services">
           <h2>Skin Fade</h2>
           <p>
-            Tailored haircut with optional hot lather and straight razor neck
-            shave
-            <br />
-            *If this is your first cut back since COVID began please book a Long
-            Cut
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
         </div>
         <div className="services">
           <h2>Beard Trim</h2>
           <p>
-            Tailored haircut with optional hot lather and straight razor neck
-            shave
-            <br />
-            *If this is your first cut back since COVID began please book a Long
-            Cut
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
         </div>

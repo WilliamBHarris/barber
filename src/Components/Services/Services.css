@@ -1,6 +1,7 @@
 .servicesMain {
   min-height: 100%;
   background: white;
+  position: relative;
 }
 
 .servicesTitle {
@@ -49,4 +50,12 @@
   text-align: left;
   font-size: 20px;
   font-family: "GT-America-Regular",sans-serif;
+}
+
+.line {
+  background-color: black;
+  height: 5%;
+  width: 2px;
+  position: absolute;
+  top: 0;
 }

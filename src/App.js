@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import "./App.css";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Nav/Navbar";
@@ -10,7 +10,7 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
 import dbCall from "./helpers/environment";
-
+// jaylen branch
 function App() {
   const [sessionToken, setSessionToken] = useState("");
   const [user, setUser] = useState({
@@ -90,7 +90,7 @@ function App() {
         sessionToken={sessionToken}
         setSessionToken={setSessionToken}
       />
-      <Book name={name}/>
+      <Book name={name} />
     </div>
   );
 }

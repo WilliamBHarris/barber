@@ -10,8 +10,12 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
 import dbCall from "./helpers/environment";
+
 import Navigation from "./Components/Nav/Navigation";
-// jaylen branch
+
+import Schedule from './Components/Booking/Schedules/Schedule';
+import Times from "./Components/Booking/Schedules/Times"
+
 function App() {
   const [sessionToken, setSessionToken] = useState("");
   const [user, setUser] = useState({
@@ -76,7 +80,9 @@ function App() {
       <Routes>
           <Route path="/" element={<Book />} />
           </Routes></Router> */}
+
       <Navigation />
+
       <Showcase />
       <About />
       <Services />
@@ -90,8 +96,14 @@ function App() {
         updateToken={updateToken}
         sessionToken={sessionToken}
         setSessionToken={setSessionToken}
+
       />
       <Book name={name} />
+
+      /> */}
+      {/* <Book name={name}/> */}
+      <Schedule />
+      <Times />
     </div>
   );
 }

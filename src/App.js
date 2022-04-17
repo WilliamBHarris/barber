@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import "./App.css";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Nav/Navbar";
@@ -10,6 +10,9 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
 import dbCall from "./helpers/environment";
+
+import Navigation from "./Components/Nav/Navigation";
+
 import Schedule from './Components/Booking/Schedules/Schedule';
 import Times from "./Components/Booking/Schedules/Times"
 
@@ -77,7 +80,9 @@ function App() {
       <Routes>
           <Route path="/" element={<Book />} />
           </Routes></Router> */}
-      {/* <Navbar />
+
+      <Navigation />
+
       <Showcase />
       <About />
       <Services />
@@ -91,6 +96,10 @@ function App() {
         updateToken={updateToken}
         sessionToken={sessionToken}
         setSessionToken={setSessionToken}
+
+      />
+      <Book name={name} />
+
       /> */}
       {/* <Book name={name}/> */}
       <Schedule />

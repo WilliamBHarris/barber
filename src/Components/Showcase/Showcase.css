@@ -15,6 +15,7 @@
     background-size: cover;
     background-position-x: -500px;
     opacity: 1;
+    max-width: 100%;
 }
 
 .showBox2 {
@@ -65,3 +66,18 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 1208px) {
+    div .showBox2 {
+         display: none;
+     }
+ 
+     .showBox1 {
+         width: 100%;
+         background-position-x: 0px;
+         overflow-x:hidden ;
+         background-size: contain;
+         min-width: 100%;
+         min-height: 100%;
+     }
+ }

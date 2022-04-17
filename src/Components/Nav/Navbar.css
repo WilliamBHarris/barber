@@ -37,3 +37,66 @@
     text-transform: uppercase;
     letter-spacing: 3px;
 }
+
+.Navigation .MobileNav {
+    display: none;
+}
+
+@media (max-width: 1208px) {
+    .Navigation .Navbar {
+        display: none;
+    }
+
+    .Navigation .MobileNav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 5px;
+    }
+}
+
+
+
+.hamburger {
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    z-index: 100;
+}
+
+.Navigation .MobileNav {
+    height: 50vh;
+    position: fixed;
+    top: 1%;
+    right: 0;
+    width: 50%;
+    z-index: 2;
+    float: right;
+    background-color: red;
+    margin-top: -10px;
+}
+
+.MobilenavItems {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    height: 50vh;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.MobilenavItems a {
+    text-decoration: none;
+    color: black;
+    padding-right: 60px;
+    font-size: 17px;
+    font-family: "GT-America-Regular",sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.MobilenavItems a:hover {
+    color: white;
+}

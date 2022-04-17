@@ -11,7 +11,7 @@
 .aboutBox {
     height: 100vh;
     width: 60%;
-    line-height: 500%;
+    line-height: 300%;
     display: flex;
     align-items: center;
 }
@@ -19,5 +19,5 @@
 .aboutBox h1 {
     font-family: "Cerulean NF", sans-serif;
     font-weight: normal;
-    font-size: 3.1rem;
+    font-size: clamp(10px, 2vw, 15vw);
 }

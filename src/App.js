@@ -10,6 +10,7 @@ import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
 import dbCall from "./helpers/environment";
+import Navigation from "./Components/Nav/Navigation";
 // jaylen branch
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -75,7 +76,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Book />} />
           </Routes></Router> */}
-      <Navbar />
+      <Navigation />
       <Showcase />
       <About />
       <Services />

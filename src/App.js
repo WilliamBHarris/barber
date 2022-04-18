@@ -94,7 +94,7 @@ function App() {
       /> */}
       {/* <Book name={name}/> */}
       <Schedule />
-      <Times />
+      {/* <Times /> */}
     </div>
   );
 }

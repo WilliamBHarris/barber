@@ -26,6 +26,7 @@ function App() {
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
   const [userUpdate, setUserUpdate] = useState('')
+  const [email, setEmail] = useState('')
 
   const updateToken = (newToken) => {
     localStorage.setItem("Authorization", newToken);
@@ -50,6 +51,7 @@ function App() {
           })
           .then((res) => {
             setUser(res);
+            setEmail(res.email)
             setUserId(res.userId);
             setRole(res.role);
             setName(`${res.firstName} ${res.lastName}`);
@@ -92,9 +94,10 @@ function App() {
         sessionToken={sessionToken}
         setSessionToken={setSessionToken}
       /> */}
-      {/* <Book name={name}/> */}
-      <Schedule />
-      {/* <Times /> */}
+      <Book name={name}/>
+      
+      <Schedule email={email} userId={userId} name={name} />
+      {/* <Times email={email} /> */}
     </div>
   );
 }

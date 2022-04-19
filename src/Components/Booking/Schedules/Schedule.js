@@ -5,24 +5,24 @@ import dayjs from "dayjs";
 import dbCall from "../../../helpers/environment";
 import Times from "../../Booking/Schedules/Times";
 
-const Schedule = () => {
+const Schedule = ({name, userId, email}) => {
   const [skip, setSkip] = useState(true);
   const [date, setDate] = useState("");
   const [dates, setDates] = useState([]);
-  const modDate = dayjs(date).format("MM-DD-YYYY").toString();
+  const modDate = dayjs(date).format("YYYY-MM-DD").toString();
   const [run, setRun] = useState(true);
   const [times, setTimes] = useState([]);
   const [update, setUpdate] = useState(false);
   const [deleteID, setDeleteID] = useState('');
 
   const onChange = (date) => {
-    setDates([dayjs(date).format("MM-DD-YYYY").toString(), ...dates]);
+    setDates([dayjs(date).format("YYYY-MM-DD").toString(), ...dates]);
     setDate(date);
     console.log(dayjs(date).format("MM-DD-YYYY"));
   };
 
   useEffect(() => {
-    if (run) {
+    if (run || update  ) {
       const fetchTimes = async () => {
         await fetch(`${dbCall}/products/`, {
           method: "GET",
@@ -33,8 +33,9 @@ const Schedule = () => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data)
             setDates(data);
-
+            setUpdate(false)
             setRun(false);
           })
           .catch((err) => {
@@ -43,7 +44,7 @@ const Schedule = () => {
       };
       fetchTimes();
     }
-  }, [modDate, date, run]);
+  }, [run, update, deleteID]);
 
   useEffect(() => {
     if (skip) setSkip(false);
@@ -54,6 +55,7 @@ const Schedule = () => {
           body: JSON.stringify({
             product: {
               date: modDate,
+              email: email
             },
           }),
           headers: {
@@ -64,6 +66,7 @@ const Schedule = () => {
           .then((res) => res.json())
           .then((res) => {
             setRun(true);
+            setDeleteID('RUN')
             console.log(res);
             console.log(dates);
           })
@@ -73,15 +76,16 @@ const Schedule = () => {
     }
   }, [date]);
 
-  const handleDelete = async () => {
-    await fetch(`${dbCall}/product/${deleteID}`, {
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    await fetch(`${dbCall}/products/${deleteID}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
       }),
     }).then(() => {
-      // setUpdate(true)
+      setUpdate(true)
     });
   };
 
@@ -89,17 +93,17 @@ const Schedule = () => {
   return (
     <div>
       <h1>Make a schedule</h1>
+      <p>Logged in as: {name}</p>
       <Calendar calendarType="US" onChange={onChange} value={new Date()} />
       <div>
-        {dates.map((date, i) => (
+       {dates ? dates.map((date, i) => (
           // REMOVE INLINE STYLING!!!!!
-          <div style={{border: '1px solid black', marginTop: '20px'}} key={date.id + 0.01}>
-           
+          date.userId !== userId ? null : <div style={{border: '1px solid black', marginTop: '20px'}} key={date.id + 0.01}>
             <p key={i}>{date.date}</p>
-
-            <p>{date.id}</p>
-            <button onClick={() => {handleDelete()}} onMouseEnter={() => {setDeleteID(date.id)}} type='submit'>Delete</button>
-            {deleteID}
+            
+            <form onSubmit={handleDelete}>
+            <button onClick={() => {setDeleteID(date.id)}} type='submit'>Delete</button>
+            </form>
             <Times
               key={date.id + 1}
               userId={date.userId}
@@ -108,7 +112,7 @@ const Schedule = () => {
               update={update}
             />            
           </div>
-        ))}
+        )) : 'No dates selected'}
       </div>
     </div>
   );

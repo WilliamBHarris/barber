@@ -3,15 +3,16 @@ import dbCall from "../../helpers/environment";
 
 
 const Book = ({name}) => {
-    const [date, setDate] = useState(new Date());
+    const [id, setId] = useState();
     const [barberName, setBarberName] = useState();
     const [dateSelect, setDateSelect] = useState();
-    const [times, setTimes] = useState([]);
-    const [dates, setDates] = useState([]);
-
-   
+    const [times, setTimes] = useState({});
+    const [booked, setBooked] = useState(true);
+    const [run, setRun] = useState(false)
+    const [allTimes, setAllTimes] = useState([])   
 
    const handleSubmit = (e) => {
+     setRun(true)
        e.preventDefault();
        const fetchTimes = async () => {
         await fetch(`${dbCall}/products/${barberName}/${dateSelect}`, {
@@ -23,11 +24,9 @@ const Book = ({name}) => {
           })
             .then((res) => res.json())
             .then((data) => {
-                if(data === null){
-                    setTimes([])
-                }
+                setTimes(data)
+                setAllTimes(data.reviews)
               console.log(data);
-              setTimes(data.time)
             })
             .catch((err) => {
               console.log(err);
@@ -37,6 +36,30 @@ const Book = ({name}) => {
 
     }
 
+    const handleBook = (e) => {
+      setBooked(!booked)
+      e.preventDefault();
+      console.log(times.id)
+      console.log(name)
+      fetch(`${dbCall}/review/${id}`, {
+         method: 'PUT',
+         body: JSON.stringify({
+           review: {
+             booked: booked,
+             userName: name
+           }
+         }),
+         headers: new Headers({
+           'Content-Type': 'application/json',
+           Authorization: `Bearer ${localStorage.getItem("Authorization")}`
+         })
+       })
+       .then(res => {
+         console.log(res)
+       })
+       .catch(error => console.log(error))
+   }
+
     return (
         <div>
             <p>Hello {name}</p>
@@ -44,8 +67,8 @@ const Book = ({name}) => {
             <form onSubmit={handleSubmit}>
             <label>Choose a barber:</label>
             <select onChange={(e) => (setBarberName(e.target.value))} name='barbers' id='barbers'>
-                <option value='80d66243-2d12-490d-9cd3-a0555f49491b'>Billy Bass</option>
-                <option value='8227b66e-509c-4f27-a84c-99fd280546d3'>Danny Dimes</option>
+                <option value='221c1761-16d4-4a9c-96da-88ce36aa32a0'>Billy Bass</option>
+                <option value='4b11c9e9-4dcb-4ba2-be12-f1863abadfd4'>Danny Dimes</option>
                 <option value='Johnny Jobs'>Johnny Jobs</option>
                 <option value='Sammy Slice'>Sammy Slice</option>
             </select>
@@ -53,7 +76,7 @@ const Book = ({name}) => {
             <button type='submit'>Submit</button>
             </form>
             <h4>Available Times:</h4>
-            {times.length === 0 ? "No available times. Try again later." : times.map((time, i) => (<><p key={i}>{time}</p><button value={time} onClick={() => {console.log(time)}}>Book</button></>))}
+            {run === true ? allTimes.map((time, i) => (<form key={i + 1} onSubmit={handleBook} ><button style={{background: time.booked ? "red" : "blue" }} value='true' type='submit' onClick={() => {setId(time.id)}}  key={i}>{time.time}</button></form>)) : null}
         </div>
     )
 }

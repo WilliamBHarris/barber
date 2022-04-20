@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import dbCall from "../../helpers/environment";
+import "../Booking/Book.css";
 
 
 const Book = ({name}) => {
     const [id, setId] = useState();
-    const [barberName, setBarberName] = useState();
+    const [barberName, setBarberName] = useState('221c1761-16d4-4a9c-96da-88ce36aa32a0');
     const [dateSelect, setDateSelect] = useState();
     const [times, setTimes] = useState({});
     const [booked, setBooked] = useState(true);
@@ -61,9 +62,9 @@ const Book = ({name}) => {
    }
 
     return (
-        <div>
-            <p>Hello {name}</p>
-            <p>Book an appointment:</p>
+        <div className='bookMain'>
+            <h1>Hello {name}</h1>
+            <h4>Book an appointment:</h4>
             <form onSubmit={handleSubmit}>
             <label>Choose a barber:</label>
             <select onChange={(e) => (setBarberName(e.target.value))} name='barbers' id='barbers'>
@@ -72,11 +73,13 @@ const Book = ({name}) => {
                 <option value='Johnny Jobs'>Johnny Jobs</option>
                 <option value='Sammy Slice'>Sammy Slice</option>
             </select>
-            <input onChange={(e) => (setDateSelect(e.target.value))}  type='date'/>
+            <input required onChange={(e) => (setDateSelect(e.target.value))}  type='date'/>
             <button type='submit'>Submit</button>
             </form>
             <h4>Available Times:</h4>
-            {run === true ? allTimes.map((time, i) => (<form key={i + 1} onSubmit={handleBook} ><button style={{background: time.booked ? "red" : "blue" }} value='true' type='submit' onClick={() => {setId(time.id)}}  key={i}>{time.time}</button></form>)) : null}
+            <div className='apptTimes'>
+            {run === true ? allTimes.map((time, i) => (<form  key={i + 1} onSubmit={handleBook} ><button style={{background: time.booked ? "red" : "blue", pointerEvents: time.booked ? 'none' : 'click', cursor: time.booked ? "none" : 'pointer' }} value='true' type='submit' onClick={() => {setId(time.id)}}  key={i}>{time.time}</button></form>)) : null}
+            </div>
         </div>
     )
 }

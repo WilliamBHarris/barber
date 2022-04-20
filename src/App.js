@@ -1,17 +1,18 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 import "./App.css";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Nav/Navbar";
-import Showcase from "./Components/Showcase/Showcase";
-import Services from "./Components/Services/Services";
-import About from "./Components/About/About";
-import Barbers from "./Components/Barbers/Barbers";
+// import Showcase from "./Components/Showcase/Showcase";
+// import Services from "./Components/Services/Services";
+// import About from "./Components/About/About";
+// import Barbers from "./Components/Barbers/Barbers";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
 import dbCall from "./helpers/environment";
-import Schedule from './Components/Booking/Schedules/Schedule';
-import Times from "./Components/Booking/Schedules/Times"
+import Schedule from "./Components/Booking/Schedules/Schedule";
+import Times from "./Components/Booking/Schedules/Times";
+import Main from "./Main";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -25,8 +26,8 @@ function App() {
   const [userId, setUserId] = useState("");
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
-  const [userUpdate, setUserUpdate] = useState('')
-  const [email, setEmail] = useState('')
+  const [userUpdate, setUserUpdate] = useState("");
+  const [email, setEmail] = useState("");
 
   const updateToken = (newToken) => {
     localStorage.setItem("Authorization", newToken);
@@ -38,7 +39,10 @@ function App() {
       setSessionToken(localStorage.getItem("Authorization"));
 
     const fetchUser = async () => {
-      if ((sessionToken !== "" && user.userId === "") || userUpdate === 'update') {
+      if (
+        (sessionToken !== "" && user.userId === "") ||
+        userUpdate === "update"
+      ) {
         await fetch(`${dbCall}/user/setUser`, {
           method: "POST",
           headers: {
@@ -51,11 +55,11 @@ function App() {
           })
           .then((res) => {
             setUser(res);
-            setEmail(res.email)
+            setEmail(res.email);
             setUserId(res.userId);
             setRole(res.role);
             setName(`${res.firstName} ${res.lastName}`);
-            setUserUpdate('')
+            setUserUpdate("");
             console.log(res);
           })
           .then(() => user)
@@ -75,29 +79,38 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Router>
-      <Routes>
-          <Route path="/" element={<Book />} />
-          </Routes></Router> */}
-      {/* <Navbar />
-      <Showcase />
-      <About />
-      <Services />
-      <Barbers />
-      <Register
-        updateToken={updateToken}
-        sessionToken={sessionToken}
-        setSessionToken={setSessionToken}
-      />
-      <Login
-        updateToken={updateToken}
-        sessionToken={sessionToken}
-        setSessionToken={setSessionToken}
-      /> */}
-      <Book name={name}/>
-      
-      <Schedule email={email} userId={userId} name={name} />
-      {/* <Times email={email} /> */}
+      <Navbar />      
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/book" element={<Book />} />
+          {/* <Route path="/navRouter" element={<Navbar />} />
+          <Route path="/home" element={<Showcase />} /> */}
+          <Route
+            path="/schedule"
+            element={<Schedule email={email} userId={userId} name={name} />}
+          />
+          <Route path="/times" element={<Times email={email} />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                updateToken={updateToken}
+                sessionToken={sessionToken}
+                setSessionToken={setSessionToken}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <Register
+                updateToken={updateToken}
+                sessionToken={sessionToken}
+                setSessionToken={setSessionToken}
+              />
+            }
+          />
+        </Routes>
     </div>
   );
 }

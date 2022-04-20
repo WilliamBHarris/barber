@@ -1,0 +1,41 @@
+.scheduleMain {
+    height: 100%;
+    width: 100%;
+    margin-top: 150px;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.date {
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    width: fit-content;
+}
+
+.scheduleMain button {
+    padding: 10px;
+}
+
+.selectedTimes {
+    display: flex;
+}
+
+.dateMain {
+    position: relative;
+}
+
+.deleteButton {
+    position: absolute;
+    background-color: red;
+    color: white;
+    top: 0;
+    right: 0;
+    border: none;
+}

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import dbCall from "../../../helpers/environment";
+import "../../Booking/Schedules/Times.css";
 
 const Times = ({id, setUpdate, update}) => {
     const [run, setRun] = useState(true)
@@ -76,7 +77,7 @@ const Times = ({id, setUpdate, update}) => {
 
         
     return (
-        <div>
+        <div className='timesMain'>
             <form onSubmit={handleSubmit}>
             <button value='12:00am' onClick={(e) => {handleClick(e)} } type='submit'>12:00am</button>
             <button value='12:30am' onClick={(e) => {handleClick(e)} } type='submit'>12:30am</button>
@@ -105,7 +106,7 @@ const Times = ({id, setUpdate, update}) => {
             </form>
             
             <h4>Times Selected:</h4>
-            {timer.map((timer, i) => (<><p key={i}>{timer.time}</p> {timer.booked && <p>{timer.userName}</p>}</>))}
+            {timer.map((timer, i) => (<div className='selectedTimes' key={i + 1}><p className='bookedTime' key={i}>{timer.time}</p> {timer.booked && <p className='bookedName' key={timer.id}>Booked by: {timer.userName}</p>}</div>))}
         </div>
     )
 }

@@ -1,0 +1,11 @@
+.bookedName {
+    margin-left: 20px;
+    background-color: red;
+    color: white;
+    padding: 5px;
+}
+
+.bookedTime {
+    width: 60px;
+    padding: 5px;
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import dbCall from "../../helpers/environment";
+import {Link} from 'react-router-dom'
+import '../../Components/Auth/Register.css'
 
 
 
@@ -62,7 +64,7 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className='mainRegister'>
+      <div className='registerMain'>
         <div className="homeLogo"></div>
         <div className="homeLogo2"></div>
         <div className='registerBox'>
@@ -132,14 +134,13 @@ class Register extends React.Component {
           <p className="alreadyUser">
               Already a user? Login
               <span className="link">
-                {/* <Link className="aLink" to="/login">
+                <Link className="aLink" to="/login">
                   here
-                </Link> */}
+                </Link>
               </span>
               !
             </p>
         </div>
-        {/* {this.state.user !== "" ? <Navigate to="/products" /> : null} */}
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
-// import { Navigate} from 'react-router-dom';
 import dbCall from '../../helpers/environment';
+import { Link } from 'react-router-dom'
+import '../../Components/Auth/Login.css'
 
 
 class Login extends React.Component {
@@ -58,10 +59,7 @@ class Login extends React.Component {
   
   render() {
       return (
-        <div className='mainRegister'>
-        <div className="homeLogo"></div>
-        <div className="homeLogo2"></div>
-        <div className='registerBox'>
+        <div className='loginMain'>
           <div className='formTitle'>Login</div>
           <p className='formDescription'>Welcome back! Please enter your email and password.</p>
           <form className="formBox" onSubmit={this.loginUser}>           
@@ -89,15 +87,13 @@ class Login extends React.Component {
           <p className="alreadyUser">
               Haven't signed up yet? Sign up
               <span className="link">
-                {/* <Link className="aLink" to="/register">
+                <Link className="aLink" to="/register">
                   here
-                </Link> */}
+                </Link>
               </span>
               !
             </p>
         </div>
-        {/* {this.state.user !== "" ? <Navigate to="/products" /> : null} */}
-      </div>
       )
   }
 }

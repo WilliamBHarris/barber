@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
 import dbCall from "../../../helpers/environment";
 import Times from "../../Booking/Schedules/Times";
+import "../../Booking/Schedules/Schedule.css";
 
 const Schedule = ({name, userId, email}) => {
   const [skip, setSkip] = useState(true);
@@ -23,6 +24,8 @@ const Schedule = ({name, userId, email}) => {
 
   useEffect(() => {
     if (run || update  ) {
+      setUpdate(false)
+            setRun(false);
       const fetchTimes = async () => {
         await fetch(`${dbCall}/products/`, {
           method: "GET",
@@ -35,8 +38,7 @@ const Schedule = ({name, userId, email}) => {
           .then((data) => {
             console.log(data)
             setDates(data);
-            setUpdate(false)
-            setRun(false);
+            
           })
           .catch((err) => {
             console.log(err);
@@ -91,18 +93,17 @@ const Schedule = ({name, userId, email}) => {
 
 
   return (
-    <div>
+    <div className='scheduleMain'>
       <h1>Make a schedule</h1>
       <p>Logged in as: {name}</p>
       <Calendar calendarType="US" onChange={onChange} value={new Date()} />
-      <div>
+      <div >
        {dates ? dates.map((date, i) => (
-          // REMOVE INLINE STYLING!!!!!
-          date.userId !== userId ? null : <div style={{border: '1px solid black', marginTop: '20px'}} key={date.id + 0.01}>
-            <p key={i}>{date.date}</p>
+          date.userId !== userId ? null : <div className="dateMain" key={date.id + 0.01}>
+            <p className="date" key={i}>{date.date}</p>
             
             <form onSubmit={handleDelete}>
-            <button onClick={() => {setDeleteID(date.id)}} type='submit'>Delete</button>
+            <button className='deleteButton' onClick={() => {setDeleteID(date.id)}} type='submit'>Delete</button>
             </form>
             <Times
               key={date.id + 1}

@@ -12,7 +12,6 @@ const Schedule = ({name, userId, email}) => {
   const [dates, setDates] = useState([]);
   const modDate = dayjs(date).format("YYYY-MM-DD").toString();
   const [run, setRun] = useState(true);
-  const [times, setTimes] = useState([]);
   const [update, setUpdate] = useState(false);
   const [deleteID, setDeleteID] = useState('');
 
@@ -94,9 +93,11 @@ const Schedule = ({name, userId, email}) => {
 
   return (
     <div className='scheduleMain'>
+      <div className='calendarBox'>
       <h1>Make a schedule</h1>
       <p>Logged in as: {name}</p>
       <Calendar calendarType="US" onChange={onChange} value={new Date()} />
+      </div>
       <div >
        {dates ? dates.map((date, i) => (
           date.userId !== userId ? null : <div className="dateMain" key={date.id + 0.01}>

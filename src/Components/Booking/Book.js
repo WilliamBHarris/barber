@@ -63,6 +63,7 @@ const Book = ({name}) => {
 
     return (
         <div className='bookMain'>
+          <div className='bookHeaders'>
             <h1>Hello {name}</h1>
             <h4>Book an appointment:</h4>
             <form onSubmit={handleSubmit}>
@@ -77,8 +78,9 @@ const Book = ({name}) => {
             <button type='submit'>Submit</button>
             </form>
             <h4>Available Times:</h4>
+            </div>
             <div className='apptTimes'>
-            {run === true ? allTimes.map((time, i) => (<form  key={i + 1} onSubmit={handleBook} ><button style={{background: time.booked ? "red" : "blue", pointerEvents: time.booked ? 'none' : 'click', cursor: time.booked ? "none" : 'pointer' }} value='true' type='submit' onClick={() => {setId(time.id)}}  key={i}>{time.time}</button></form>)) : null}
+            {run === true ? allTimes.map((time, i) => (<form className="availAppButtons"  key={i + 1} onSubmit={handleBook} ><button style={{background: time.booked ? "red" : "blue", pointerEvents: time.booked ? 'none' : 'click', cursor: time.booked ? "none" : 'pointer' }} value='true' type='submit' onClick={() => {setId(time.id)}}  key={i}>{time.time}</button></form>)) : null}
             </div>
         </div>
     )

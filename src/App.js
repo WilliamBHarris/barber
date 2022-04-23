@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Nav/Navbar";
-// import Showcase from "./Components/Showcase/Showcase";
-// import Services from "./Components/Services/Services";
-// import About from "./Components/About/About";
-// import Barbers from "./Components/Barbers/Barbers";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
@@ -82,9 +78,7 @@ function App() {
       <Navbar />      
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/book" element={<Book />} />
-          {/* <Route path="/navRouter" element={<Navbar />} />
-          <Route path="/home" element={<Showcase />} /> */}
+          <Route path="/book" element={<Book name={name} />} />
           <Route
             path="/schedule"
             element={<Schedule email={email} userId={userId} name={name} />}

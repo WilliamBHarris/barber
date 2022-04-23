@@ -9,9 +9,10 @@ const Navbar = () => {
             <ul className='navItems'>
                 <Link to="/login"><li>Login</li></Link>
                 <Link to="/register"><li>Signup</li></Link>
-                <Link to="/"><li>Home</li></Link>
+                
                 <Link to="/schedule"><li>Staff</li></Link>
                 <Link to="/book"><li>Book</li></Link>
+                <Link to="/"><li>Home</li></Link>
                 <a href="#about"><li>About</li></a>
                 <a href="#services"><li>Services</li></a>
                 <a href="#barbers"><li>Barbers</li></a>

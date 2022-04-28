@@ -6,14 +6,14 @@ import dbCall from "../../../helpers/environment";
 import Times from "../../Booking/Schedules/Times";
 import "../../Booking/Schedules/Schedule.css";
 
-const Schedule = ({name, userId, email}) => {
+const Schedule = ({ name, userId, email }) => {
   const [skip, setSkip] = useState(true);
   const [date, setDate] = useState("");
   const [dates, setDates] = useState([]);
   const modDate = dayjs(date).format("YYYY-MM-DD").toString();
   const [run, setRun] = useState(true);
   const [update, setUpdate] = useState(false);
-  const [deleteID, setDeleteID] = useState('');
+  const [deleteID, setDeleteID] = useState("");
 
   const onChange = (date) => {
     setDates([dayjs(date).format("YYYY-MM-DD").toString(), ...dates]);
@@ -22,9 +22,9 @@ const Schedule = ({name, userId, email}) => {
   };
 
   useEffect(() => {
-    if (run || update  ) {
-      setUpdate(false)
-            setRun(false);
+    if (run || update) {
+      setUpdate(false);
+      setRun(false);
       const fetchTimes = async () => {
         await fetch(`${dbCall}/products/`, {
           method: "GET",
@@ -35,9 +35,8 @@ const Schedule = ({name, userId, email}) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
+            console.log(data);
             setDates(data);
-            
           })
           .catch((err) => {
             console.log(err);
@@ -56,7 +55,7 @@ const Schedule = ({name, userId, email}) => {
           body: JSON.stringify({
             product: {
               date: modDate,
-              email: email
+              email: email,
             },
           }),
           headers: {
@@ -67,7 +66,7 @@ const Schedule = ({name, userId, email}) => {
           .then((res) => res.json())
           .then((res) => {
             setRun(true);
-            setDeleteID('RUN')
+            setDeleteID("RUN");
             console.log(res);
             console.log(dates);
           })
@@ -86,35 +85,48 @@ const Schedule = ({name, userId, email}) => {
         Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
       }),
     }).then(() => {
-      setUpdate(true)
+      setUpdate(true);
     });
   };
 
-
   return (
-    <div className='scheduleMain'>
-      <div className='calendarBox'>
-      <h1>Make a schedule</h1>
-      <p>Logged in as: {name}</p>
-      <Calendar calendarType="US" onChange={onChange} value={new Date()} />
+    <div className="scheduleMain">
+      <div className="calendarBox">
+        <h1>Make a schedule</h1>
+        <p>Logged in as: {name}</p>
+        <Calendar calendarType="US" onChange={onChange} value={new Date()} />
       </div>
-      <div >
-       {dates ? dates.map((date, i) => (
-          date.userId !== userId ? null : <div className="dateMain" key={date.id + 0.01}>
-            <p className="date" key={i}>{date.date}</p>
-            
-            <form onSubmit={handleDelete}>
-            <button className='deleteButton' onClick={() => {setDeleteID(date.id)}} type='submit'>Delete</button>
-            </form>
-            <Times
-              key={date.id + 1}
-              userId={date.userId}
-              id={date.id}
-              setUpdate={setUpdate}
-              update={update}
-            />            
-          </div>
-        )) : 'No dates selected'}
+      <div>
+        {dates
+          ? dates.map((date, i) =>
+              date.userId !== userId ? null : (
+                <div className="dateMain" key={date.id + 0.01}>
+                  <p className="date" key={i}>
+                    {date.date}
+                  </p>
+
+                  <form onSubmit={handleDelete}>
+                    <button
+                      className="deleteButton"
+                      onClick={() => {
+                        setDeleteID(date.id);
+                      }}
+                      type="submit"
+                    >
+                      Delete
+                    </button>
+                  </form>
+                  <Times
+                    key={date.id + 1}
+                    userId={date.userId}
+                    id={date.id}
+                    setUpdate={setUpdate}
+                    update={update}
+                  />
+                </div>
+              )
+            )
+          : "No dates selected"}
       </div>
     </div>
   );

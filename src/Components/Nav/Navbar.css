@@ -5,14 +5,35 @@
     right: 0;
     width: 100%;
     z-index: 2;
+    overflow: visible;
 }
+
+.account {
+    margin-right: 70px;
+    cursor: pointer;
+}
+
+.downCaret {
+    margin-left: -70px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+ .upCaret {
+     cursor: pointer;
+     margin-left: -70px;
+     margin-right: 40px;
+ }
+
 .logo {
     position: absolute;
-    color: black;
+    color: red;
     text-decoration: none;
     top: 5%;
     left: 3%;
     z-index: 2;
+    width: 50px;
+    text-align: center;
     border-radius: 5px;
     border: 1px solid white;
     padding: 5px 5px;
@@ -26,12 +47,13 @@
     justify-content: flex-end;
     list-style: none;
     height: 7vh;
+    overflow-y: visible;
 }
 
 .navItems a {
     text-decoration: none;
     color: black;
-    padding-right: 60px;
+    padding-right: 40px;
     font-size: 17px;
     font-family: "GT-America-Regular",sans-serif;
     text-transform: uppercase;

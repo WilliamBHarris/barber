@@ -1,10 +1,26 @@
 .bookMain {
-    height: 100vh;
-    width: 100%;
+    width: 50vw;
     display: grid;
     place-content: center;
     margin-inline: auto;
     font-size: 20px;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.overlay {
+    height: 50vh;
+    width: 60vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0, .3);
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .availAppButtons {

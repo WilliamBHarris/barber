@@ -2,4 +2,54 @@
     height: 100vh;
     display: grid;
     place-content: center;
+    background-color: #fbf8f2;
+}
+
+.registerBox {
+    border: 1px solid red;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    font-family: "Cerulean NF", sans-serif;
+}
+
+.registerBox h4 {
+    margin-bottom: 5px;
+    font-family: "Cerulean NF", sans-serif;
+}
+
+.registerBox input {
+    height: 30px;
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.registerBox button {
+    height: 40px;
+    font-family: "Cerulean NF", sans-serif;
+    width: 100px;
+    background-color: red;
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-div {
+    text-align: center;
+}
+
+
+.registerLink{
+    margin-left: 5px;
+    text-decoration: none;
+    color: red;
+}
+
+.hide {
+    display: none;
 }

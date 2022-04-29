@@ -1,0 +1,20 @@
+.accountMain {
+     border-radius: 5px;
+    margin-top: 160px;
+    margin-right: 30px;
+    position: absolute;
+    display: flex;
+    padding: 5px;
+    height: 150%;
+    overflow-y: hidden;
+}
+
+.accountMain li{
+ font-family: "GT-America-Regular",sans-serif;
+ font-size: 16px;
+}
+
+.accountMain ul {
+text-align: center;
+overflow:visible;
+}

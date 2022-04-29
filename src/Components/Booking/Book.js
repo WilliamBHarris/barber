@@ -62,9 +62,9 @@ const Book = ({name}) => {
    }
 
     return (
+      <div className='overlay'>
         <div className='bookMain'>
           <div className='bookHeaders'>
-            <h1>Hello {name}</h1>
             <h4>Book an appointment:</h4>
             <form onSubmit={handleSubmit}>
             <label>Choose a barber:</label>
@@ -82,6 +82,7 @@ const Book = ({name}) => {
             <div className='apptTimes'>
             {run === true ? allTimes.map((time, i) => (<form className="availAppButtons"  key={i + 1} onSubmit={handleBook} ><button style={{background: time.booked ? "red" : "blue", pointerEvents: time.booked ? 'none' : 'click', cursor: time.booked ? "none" : 'pointer' }} value='true' type='submit' onClick={() => {setId(time.id)}}  key={i}>{time.time}</button></form>)) : null}
             </div>
+        </div>
         </div>
     )
 }

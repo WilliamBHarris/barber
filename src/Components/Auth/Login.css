@@ -2,4 +2,51 @@
     height: 100vh;
     display: grid;
     place-content: center;
+    background-color: #fbf8f2;
+}
+
+.loginBox {
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Cerulean NF", sans-serif;
+}
+
+.loginBox h4 {
+    margin-bottom: 5px;
+    font-family: "Cerulean NF", sans-serif;
+}
+
+.loginBox input {
+    height: 30px;
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.loginBox button {
+    height: 40px;
+    font-family: "Cerulean NF", sans-serif;
+    width: 100px;
+    background-color: red;
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-div {
+    text-align: center;
+}
+
+
+.loginLink{
+    margin-left: 5px;
+    text-decoration: none;
+    color: red;
 }

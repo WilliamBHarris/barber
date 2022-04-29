@@ -1,9 +1,7 @@
 import React from "react";
 import dbCall from "../../helpers/environment";
-import {Link} from 'react-router-dom'
-import '../../Components/Auth/Register.css'
-
-
+import { Link, Navigate } from "react-router-dom";
+import "../../Components/Auth/Register.css";
 
 class Register extends React.Component {
   constructor(props) {
@@ -16,7 +14,7 @@ class Register extends React.Component {
       lastName: "",
       email: "",
       user: "",
-      role: 'general',
+      role: "general",
       passwordhash: "",
       sessionToken: this.props.sessionToken,
       setSessionToken: this.props.setSessionToken,
@@ -44,7 +42,7 @@ class Register extends React.Component {
           passwordhash: this.state.passwordhash,
           location: this.state.location,
           image: this.state.image,
-          role: this.state.role
+          role: this.state.role,
         },
       }),
       headers: {
@@ -64,83 +62,66 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className='registerMain'>
-        <div className="homeLogo"></div>
-        <div className="homeLogo2"></div>
-        <div className='registerBox'>
-          <div className='formTitle'>Sign Up</div>
-          <p className='formDescription'>Welcome to Barber. Signup to book an appointment!</p>
-          <form className="formBox" onSubmit={this.registerUser}>
-            <div className='inputTitle'>First Name</div>
+      <div className="registerMain">
+        <div className="registerBox">
+          <h1>Sign Up</h1>
+          <p>Welcome to Barber. Signup to book an appointment!</p>
+          <form onSubmit={this.registerUser}>
+            <h4>First Name:</h4>
             <input
-            className='inputBox'
               type="text"
               name="firstName"
               value={this.state.firstName}
               onChange={this.handleChange}
               required
             />
-            <div className='inputTitle'>Last Name</div>
+            <h4>Last Name:</h4>
             <input
-            className='inputBox'
               type="text"
               name="lastName"
               value={this.state.lastName}
               onChange={this.handleChange}
               required
             />
-            <div className='inputTitle'>Email</div>
+            <h4>Email:</h4>
             <input
-            className='inputBox'
               type="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
               required
             />
-            <div className='inputTitle'>Password</div>
+            <h4>Password:</h4>
             <input
-              className='inputBox'
               type="password"
               name="passwordhash"
               value={this.state.passwordhash}
               onChange={this.handleChange}
               required
             />
-           {/* <div>image</div>
-             <input
-              type="text"
-              name="image"
-              value={this.state.image}
-              onChange={this.handleChange}
-            />
-            <div>location</div>
             <input
-              type="location"
-              name="location"
-              value={this.state.location}
-              onChange={this.handleChange}
-            /> */}
-                      <input 
-                      className="hideRole"
+              className="hide"
               type="role"
               name="role"
               value={this.state.role}
               readOnly
             />
-            <br/>
-            <button className="formBtn" type="submit">Register</button>
+            <br />
+            <div className='btn-div'>
+            <button type="submit">Register</button>
+            </div>
           </form>
-          <p className="alreadyUser">
-              Already a user? Login
-              <span className="link">
-                <Link className="aLink" to="/login">
-                  here
-                </Link>
-              </span>
-              !
-            </p>
+          <p>
+            Already a user? Login
+            <span>
+              <Link className="registerLink" to="/login">
+                here
+              </Link>
+            </span>
+            !
+          </p>
         </div>
+        {this.state.user !== "" ? <Navigate to="/" /> : null}
       </div>
     );
   }

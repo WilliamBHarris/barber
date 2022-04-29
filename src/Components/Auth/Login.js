@@ -1,21 +1,20 @@
-import React from 'react';
-import dbCall from '../../helpers/environment';
-import { Link } from 'react-router-dom'
-import '../../Components/Auth/Login.css'
-
+import React from "react";
+import dbCall from "../../helpers/environment";
+import { Link, Navigate } from "react-router-dom";
+import "../../Components/Auth/Login.css";
 
 class Login extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      email: '',
-      passwordhash: '',
-      user: '',
+      email: "",
+      passwordhash: "",
+      user: "",
       sessionToken: this.props.sessionToken,
       setSessionToken: this.props.setSessionToken,
       updateToken: this.props.updateToken,
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.loginUser = this.loginUser.bind(this);
@@ -24,10 +23,9 @@ class Login extends React.Component {
   handleChange = (e) => {
     this.setState({
       ...this.state,
-      [e.target.name]: e.target.value
-    })
-  }
-
+      [e.target.name]: e.target.value,
+    });
+  };
 
   loginUser = async (e) => {
     e.preventDefault();
@@ -38,63 +36,66 @@ class Login extends React.Component {
         user: {
           email: this.state.email,
           passwordhash: this.state.passwordhash,
-        }
+        },
       }),
       headers: {
         "Content-Type": "application/json",
       },
     })
-    .then(res => res.json())
-    .then(json => {
-      console.log(json);
-      console.log(json.user.id)
-      this.props.updateToken(json.sessionToken);
-      this.props.setSessionToken(json.sessionToken)
-      this.setState({
-        user: json.user.id
-      });
-    })
-    .catch(error => console.log(error))
-  }
-  
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        console.log(json.user.id);
+        this.props.updateToken(json.sessionToken);
+        this.props.setSessionToken(json.sessionToken);
+        this.setState({
+          user: json.user.id,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
+
   render() {
-      return (
-        <div className='loginMain'>
-          <div className='formTitle'>Login</div>
-          <p className='formDescription'>Welcome back! Please enter your email and password.</p>
-          <form className="formBox" onSubmit={this.loginUser}>           
-            <div className='inputTitle'>Email:</div>
+    return (
+      <div className="loginMain">
+        <div className="loginBox">
+          <h1>Login</h1>
+          <p>Welcome back! Please enter your email and password.</p>
+          <form onSubmit={this.loginUser}>
+            <h4>Email:</h4>
             <input
-            className='inputBox'
               type="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
               required
             />
-            <div className='inputTitle'>Password:</div>
+            <h4>Password:</h4>
             <input
-              className='inputBox'
               type="password"
               name="passwordhash"
               value={this.state.passwordhash}
               onChange={this.handleChange}
               required
-            />                     
-            <br/>
-            <button className="formBtn" type="submit">Login</button>
+            />
+            <br />
+            <div className="btn-div">
+              <button type="submit">Login</button>
+            </div>
           </form>
-          <p className="alreadyUser">
-              Haven't signed up yet? Sign up
-              <span className="link">
-                <Link className="aLink" to="/register">
-                  here
-                </Link>
-              </span>
-              !
-            </p>
+          <p>
+            Haven't signed up yet? Sign up
+            <span>
+              <Link className="loginLink" to="/register">
+                here
+              </Link>
+            </span>
+            !
+          </p>
         </div>
-      )
+        {this.state.user !== "" ? <Navigate to="/" /> : null}
+      </div>
+    );
   }
 }
 

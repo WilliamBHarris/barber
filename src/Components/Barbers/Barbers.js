@@ -8,6 +8,7 @@ const Barbers = () => {
     return (
         <div className="barbersMain" id="barbers">
             <h1>Barbers</h1>
+            <p>Choose a barber to book an appointment</p>
             <div className="barbersBox" >
                 
                 <div className="barbers">

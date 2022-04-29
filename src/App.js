@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />      
+      <Navbar sessionToken={sessionToken} />      
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/book" element={<Book name={name} />} />

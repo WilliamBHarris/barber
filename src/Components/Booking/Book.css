@@ -1,46 +1,62 @@
 .bookMain {
-    width: 50vw;
-    display: grid;
-    place-content: center;
-    margin-inline: auto;
-    font-size: 20px;
-    background-color: white;
-    border: 1px solid red;
-    border-radius: 5px;
-    padding: 20px;
-    overflow: hidden;
-}
-
-.overlay {
-    height: 50vh;
-    width: 60vw;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(0, 0, 0, .3);
-    overflow: hidden;
-    border-radius: 5px;
-}
-
-.availAppButtons {
-    display: flex;
-}
-
-.bookHeaders {
+    width: 30vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    margin-inline: auto;
+    font-size: 20px;
+    background-color: #fbf8f2;
+    padding: 20px;
+    overflow: hidden;
+    font-family: "Cerulean NF", sans-serif;
 }
 
-/* .apptTimes {
-    display: flex;
-    justify-content: space-between;
-} */
+.bookMain h4 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-.apptTimes button {
-    padding: 10px 20px;
-    width: 100%;
+.bookMain form {
+    display: flex;
+    flex-direction: column;
+}
+.bookMain form label {
+   text-align: center;
+   margin: 10px 0 10px 0;
+}
+
+.bookMain form input, select{
+    width: 50%;
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 20px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Cerulean NF", sans-serif;
     font-size: 16px;
+    color: red;
+}
+
+.bookMain button {
+    width: 25%;
+    margin-inline: auto;
+    margin-bottom: 20px;
+    border: none;
+    height: 40px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.availableAppButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.availableAppButtons button {
+    width: 100px;
     margin: 5px;
 }

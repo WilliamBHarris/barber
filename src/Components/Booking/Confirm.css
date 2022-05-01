@@ -1,0 +1,45 @@
+.confirmMain {
+  height: 30vh;
+  width: 25vw;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.confirmBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+}
+
+.confirmBox h4 {
+  margin-bottom: -5px;
+  text-transform: uppercase;
+}
+
+.confirmBtn {
+  text-align: center;
+}
+
+.confirmBtn button {
+  cursor: pointer;
+}
+
+.confirmBox p {
+  font-family: "Cerulean NF", sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.confirmDetails {
+  width: 50%;
+  margin-bottom: 20px;
+  margin-inline: auto;
+}

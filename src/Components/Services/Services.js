@@ -1,13 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import "../Services/Services.css";
-import Book from '../Booking/Book'
 
-const Services = () => {
-  const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!open)
-  }
+const Services = ({setOpen, open}) => {
+
 
   return (
     <div className="servicesMain" id="services">
@@ -22,7 +18,7 @@ const Services = () => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button onClick={handleClick}>Book Now</button>
+          <button onClick={() => setOpen(!open)}>Book Now</button>
         </div>
         <div className="services">
           <h2>Styling</h2>
@@ -33,7 +29,7 @@ const Services = () => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button>Book Now</button>
+          <button onClick={() => setOpen(!open)}>Book Now</button>
         </div>
         <div className="services">
           <h2>Skin Fade</h2>
@@ -44,7 +40,7 @@ const Services = () => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button>Book Now</button>
+          <button onClick={() => setOpen(!open)}>Book Now</button>
         </div>
         <div className="services">
           <h2>Beard Trim</h2>
@@ -55,9 +51,8 @@ const Services = () => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button>Book Now</button>
+          <button onClick={() => setOpen(!open)}>Book Now</button>
         </div>
-        {open && <div className='book'><Book /></div>}
       </div>
     </div>
   );

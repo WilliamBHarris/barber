@@ -4,13 +4,13 @@ import About from "./Components/About/About";
 import Barbers from "./Components/Barbers/Barbers";
 import Showcase from "./Components/Showcase/Showcase";
 
-const Main = () => {
+const Main = ({open, setOpen}) => {
   return (
     <div>
       <Showcase />
       <About />
-      <Services />
-      <Barbers />
+      <Services setOpen={setOpen} open={open} />
+      <Barbers setOpen={setOpen} open={open} />
     </div>
   );
 };

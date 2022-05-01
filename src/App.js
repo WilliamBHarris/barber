@@ -9,6 +9,7 @@ import dbCall from "./helpers/environment";
 import Schedule from "./Components/Booking/Schedules/Schedule";
 import Times from "./Components/Booking/Schedules/Times";
 import Main from "./Main";
+import Drawer from "@material-ui/core/Drawer";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -24,6 +25,7 @@ function App() {
   const [name, setName] = useState("");
   const [userUpdate, setUserUpdate] = useState("");
   const [email, setEmail] = useState("");
+  const [open, setOpen] = useState(false);
 
   const updateToken = (newToken) => {
     localStorage.setItem("Authorization", newToken);
@@ -75,36 +77,43 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar sessionToken={sessionToken} />      
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/book" element={<Book name={name} />} />
-          <Route
-            path="/schedule"
-            element={<Schedule email={email} userId={userId} name={name} />}
-          />
-          <Route path="/times" element={<Times email={email} />} />
-          <Route
-            path="/login"
-            element={
-              <Login
-                updateToken={updateToken}
-                sessionToken={sessionToken}
-                setSessionToken={setSessionToken}
-              />
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <Register
-                updateToken={updateToken}
-                sessionToken={sessionToken}
-                setSessionToken={setSessionToken}
-              />
-            }
-          />
-        </Routes>
+      <Drawer
+        className="drawer"
+        open={open}
+        anchor="right"
+        onClose={() => setOpen(false)}
+      >
+        <Book setOpen={setOpen} name={name} />
+      </Drawer>
+      <Navbar sessionToken={sessionToken} />
+      <Routes>
+        <Route path="/" element={<Main setOpen={setOpen} open={open} />} />
+        <Route
+          path="/schedule"
+          element={<Schedule email={email} userId={userId} name={name} />}
+        />
+        <Route path="/times" element={<Times email={email} name={name} />} />
+        <Route
+          path="/login"
+          element={
+            <Login
+              updateToken={updateToken}
+              sessionToken={sessionToken}
+              setSessionToken={setSessionToken}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <Register
+              updateToken={updateToken}
+              sessionToken={sessionToken}
+              setSessionToken={setSessionToken}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }

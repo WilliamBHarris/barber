@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 10px;
 }
 
@@ -17,11 +17,14 @@
 .calendarBox {
     width: 50%;
     text-align: center;
-    height: 40vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
+}
+
+.react-calendar {
+    width: 100%;
 }
 
 .date {
@@ -38,15 +41,20 @@
 }
 
 .selectedTimes {
+    background-color: white;
     display: flex;
+    padding: 5px;
+    border: 1px solid red;
+    margin: 5px 0;
+    width: fit-content;
 }
 
 .dateMain {
     position: relative;
-    border: 3px solid black;
+    border: 1px solid black;
     margin-top: 20px;
-    margin-right: 130px;
     padding: 10px;
+    width: 100%;
 }
 
 .deleteButton {

@@ -1,11 +1,11 @@
 .accountMain {
      border-radius: 5px;
-    margin-top: 160px;
+    margin-top: 180px;
     margin-right: 30px;
     position: absolute;
     display: flex;
     padding: 5px;
-    height: 150%;
+    height: 200%;
     overflow-y: hidden;
 }
 
@@ -17,4 +17,10 @@
 .accountMain ul {
 text-align: center;
 overflow:visible;
+}
+
+.logout {
+    background-color: red;
+    padding: 5px;
+    color: white;
 }

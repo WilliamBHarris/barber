@@ -5,7 +5,7 @@ import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai'
 import { useState } from 'react'
 import Account from "./Account";
 
-const Navbar = ({sessionToken}) => {
+const Navbar = ({sessionToken, role}) => {
     const [open, setOpen] = useState(false);
 
   return (
@@ -29,7 +29,7 @@ const Navbar = ({sessionToken}) => {
      <RiAccountCircleLine onClick={() => setOpen(!open)} className="account" size={35} />
      {!open ?  <AiFillCaretDown  onClick={() => setOpen(!open)} className='downCaret'/> : null}
      {open ? <AiFillCaretUp onClick={() => setOpen(!open)} className='upCaret' /> : null }
-        {open && <Account sessionToken={sessionToken} setOpen={setOpen} open={open}/>}
+        {open && <Account role={role} sessionToken={sessionToken} setOpen={setOpen} open={open}/>}
       </ul>
     </div>
   );

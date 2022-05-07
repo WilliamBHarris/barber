@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import dbCall from "../../helpers/environment";
 import '../Booking/Confirm.css'
 
-const Confirm = ({setConfirmApp, setOpen, time, barberName, dateSelect, setBooked, booked, name, id}) => {
+const Confirm = ({setConfirmApp, userId, setOpen, time, barberName, dateSelect, setBooked, booked, name, id}) => {
     const date = dayjs(dateSelect).format("MM-DD-YYYY")
 
     const handleBook = (e) => {
@@ -16,6 +16,7 @@ const Confirm = ({setConfirmApp, setOpen, time, barberName, dateSelect, setBooke
             review: {
               booked: booked,
               userName: name,
+              userId: userId
             },
           }),
           headers: new Headers({

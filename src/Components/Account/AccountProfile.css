@@ -1,0 +1,109 @@
+.accountPageMain {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 100px;
+}
+
+.accountPageBox {
+    height: 100%;
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+}
+
+.accountPageMain h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.accountPageInfo {
+    width: 90%;
+    margin-inline: auto;
+    margin-top: 20px;
+    height: 85%;
+}
+
+.accountPageInfo h3 {
+    margin-inline: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.accountPageInfo p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20%;
+    font-size: 20px;
+}
+
+.userInfoBox {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    height: 100%;
+}
+
+.userImage {
+    height: 50%;
+    width: 50%;
+    margin-bottom: 10px;
+    border-radius: 10%;
+    margin-left: 50%;
+    transform: translate(-50%)
+}
+
+.appointmentBox {
+    width: 50%;
+    height: 100%;
+}
+
+.profileBtn {
+    margin-left: 50%;
+    transform: translate(-50%);
+    height: 40px;
+    padding: 10px;
+    border: none;
+    background-color: red;
+    color: white;
+}
+
+.appointmentBox > h2 {
+    text-align: center;
+    margin-top: 60px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.appointmentBox p {
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.appointments {
+    border: 1px solid black;
+    width: 75%;
+    margin-inline: auto;
+    text-align: left;
+    margin-top: 10px;
+    height: 100%;
+    padding-top: 30px;
+}
+
+.cancelAppointment {
+    height: 30px;
+    border: none;
+    padding: 0 10px;
+    color: white;
+    background-color: red;
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 20px;
+}
+
+.formAlign {
+    font-weight: bold;
+
+}

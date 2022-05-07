@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Nav/Navbar";
+import Confirm from "./Components/Booking/Confirm";
+import AccountProfile from "./Components/Account/AccountProfile";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
 import Book from "./Components/Booking/Book";
@@ -83,16 +85,18 @@ function App() {
         anchor="right"
         onClose={() => setOpen(false)}
       >
-        <Book setOpen={setOpen} name={name} />
+        <Book userId={userId} sessionToken={sessionToken} setOpen={setOpen} name={name} />
       </Drawer>
-      <Navbar sessionToken={sessionToken} />
+      <Navbar role={role} sessionToken={sessionToken} />
       <Routes>
         <Route path="/" element={<Main setOpen={setOpen} open={open} />} />
+        <Route path="/" element={<Confirm userId={userId}/>} />
+        <Route path="/accountProfile" element={<AccountProfile user={user} />} />
         <Route
           path="/schedule"
           element={<Schedule email={email} userId={userId} name={name} />}
         />
-        <Route path="/times" element={<Times email={email} name={name} />} />
+        <Route path="/times" element={<Times userId={userId} email={email} name={name} />} />
         <Route
           path="/login"
           element={

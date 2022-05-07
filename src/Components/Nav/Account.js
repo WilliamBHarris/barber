@@ -2,7 +2,7 @@ import React from "react";
 import "../Nav/Account.css";
 import { Link } from "react-router-dom";
 
-const Account = ({ setOpen, open, sessionToken }) => {
+const Account = ({role, setOpen, open, sessionToken }) => {
 
     const clearToken = () => {
         localStorage.clear();
@@ -21,16 +21,16 @@ const Account = ({ setOpen, open, sessionToken }) => {
         </ul>
       ) : (
         <ul>
-          <Link to="/schedule">
-            <li>Account</li>
+          <Link to="/accountProfile">
+            <li>Appointments</li>
           </Link>
-          <Link to="/schedule">
+          {(role === 'admin' || role === 'staff') && <Link to="/schedule">
             <li>
                 Schedule
             </li>
-          </Link>
+          </Link>}
           <a href="/">
-            <li onClick={clearToken}>Logout</li>
+            <li className='logout' onClick={clearToken}>Logout</li>
           </a>
         </ul>
       )}

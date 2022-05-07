@@ -3,7 +3,7 @@ import dbCall from "../../helpers/environment";
 import "../Booking/Book.css";
 import Confirm from "./Confirm";
 
-const Book = ({ name, setOpen }) => {
+const Book = ({ name, setOpen, sessionToken, userId }) => {
   const [id, setId] = useState();
   const [barberName, setBarberName] = useState(
     "221c1761-16d4-4a9c-96da-88ce36aa32a0"
@@ -71,7 +71,7 @@ const Book = ({ name, setOpen }) => {
         <button type="submit">Search</button>
       </form>
       <h4>Available Times:</h4>
-      <div className="availableAppButtons">
+      {sessionToken !== '' ? <div className="availableAppButtons">
       {noTime !== ''  ? 'No appointments available' : null}
         {run === true ? (
           allTimes.map((time, i) => (
@@ -103,6 +103,7 @@ const Book = ({ name, setOpen }) => {
                   time={confirmTime}
                   barberName={barberName}
                   dateSelect={dateSelect}
+                  userId={userId}
                 />
               )}
             </div>
@@ -110,7 +111,7 @@ const Book = ({ name, setOpen }) => {
         ) : (
           <p>Search available times</p>
         )}
-      </div>
+      </div> : <p className='loginCheck'>Login or create an account to book an appointment</p>}
     </div>
   );
 };

@@ -1,11 +1,17 @@
 .timesMain {
-    
+    display: flex;
+    flex-direction: column;
+}
+
+.timesMain button {
+    border: none;
+    border-radius: 2px;
+    margin: 5px;
+    color: white;
 }
 
 .bookedName {
     margin-left: 20px;
-    background-color: red;
-    color: white;
     padding: 5px;
 }
 

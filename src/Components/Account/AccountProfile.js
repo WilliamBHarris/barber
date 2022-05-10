@@ -4,10 +4,12 @@ import dbCall from "../../helpers/environment";
 
 const AccountProfile = ({ user }) => {
   const [data, setData] = useState([]);
-  const [itemData, setItemData] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const [itemId, setItemId] = useState('');
+  const [refresh, setRefresh] = useState('')
 
-  useEffect(() => {
-    const fetchTimes = async () => {
+  useEffect(() => { 
+    const fetchTimes = async () => { (refresh === 'refresh' || data) &&
       await fetch(`${dbCall}/review/`, {
         method: "GET",
         headers: new Headers({
@@ -18,7 +20,7 @@ const AccountProfile = ({ user }) => {
         .then((res) => res.json())
         .then((data) => {
           setData([...data])
-          setItemData([data.product])
+          setRefresh('')
           console.log(data);
         })
         .catch((err) => {
@@ -26,23 +28,41 @@ const AccountProfile = ({ user }) => {
         });
     };
     fetchTimes();
-  }, []);
+  }, [refresh]);
 
 
-  let found = data.find(function(post, index) {
-    if(post.userId === user.id)
-      return true;
-  });
+  let found = data.find(checkAppointment)
   
+  function checkAppointment(post) {
+    if(post.userId === user.id)
+     return true
+  };
+
   console.log(found)
+
+  const handleCancel = () => {
+     setToggle(!toggle);
+  }
+
+  const confirmCancel = async () => {
+    await fetch(`${dbCall}/review/${itemId}`, {
+      method: "DELETE",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("Authorization")}`,
+      }),
+    }).then(() => {
+      setItemId("");
+      setToggle(!toggle);
+      setRefresh('refresh');
+    });
+  }
+
 
   return (
     <div className="accountPageMain">
       <div className="accountPageBox">
         <div className="userInfoBox">
-          <h1>
-            {/* Welcome {user.firstName} {user.lastName} */}
-          </h1>
           <div className='accountPageInfo'>
           <h3>Account Information</h3>
           <img alt='user' className='userImage' src={user.image === '' ? 'https://robohash.org/mail@ashallendesign.co.uk' : user.image} />
@@ -54,13 +74,24 @@ const AccountProfile = ({ user }) => {
         </div>
         <div className="appointmentBox">
             <h2>Upcoming Appointments</h2>
-            {found === false && <p>No appointments scheduled</p>}
+            {!found &&  <p>No appointments scheduled</p>}
               {data.map((appointment) => (user.id === appointment.userId &&
             <div className='appointments'>
             <p><b>Barber:</b> {appointment.product.userId === "221c1761-16d4-4a9c-96da-88ce36aa32a0" && 'Billy Bass'}</p>
             <p><b>Date:</b> {appointment.product.date}</p>
             <p><b>Time:</b> {appointment.time}</p>
-            <button className='cancelAppointment'>Cancel Appointment</button>
+            <button onClick={() =>{setItemId(appointment.id); handleCancel()} } className='cancelAppointment'>Cancel Appointment</button>
+            {toggle && 
+            <div className='cancelConfirm'>
+              <h3>Confirm Cancellation</h3>
+              <p>Are you sure you want to cancel your appointment on {appointment.product.date} @ {appointment.time}?</p>
+              <p>You may not be able to reschedule this time.</p>
+              <div className='btnAlign'>
+              <button onClick={confirmCancel} className='cancelBtn'>Cancel</button>
+              <button onClick={() => setToggle(!toggle)} className='keepBtn'>Keep</button>
+              </div>
+            </div>
+            }
             </div>
             ))}
         </div>

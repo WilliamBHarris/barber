@@ -35,7 +35,6 @@
 .accountPageInfo p {
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 20%;
     font-size: 20px;
 }
 
@@ -80,6 +79,7 @@
     font-size: 20px;
     padding: 5px;
     margin-left: 20px;
+    position: relative;
 }
 
 .appointments {
@@ -106,4 +106,53 @@
 .formAlign {
     font-weight: bold;
 
+}
+
+.cancelConfirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: red;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 35%;
+    padding: 10px;
+}
+
+.cancelConfirm h3, p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.cancelConfirm h3 {
+    text-decoration: underline;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.cancelBtn {
+    height: 40px;
+    padding: 0 20px;
+    margin-right: 40px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin-top: 40px;
+}
+.keepBtn {
+    height: 40px;
+    padding: 0 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px;
+}
+.btnAlign {
+    display: flex;
+    justify-content: center;
 }

@@ -39,7 +39,6 @@
 }
 
 .userInfoBox {
-    border: 1px solid black;
     border-radius: 5px;
     width: 50%;
     height: 100%;
@@ -49,7 +48,7 @@
     height: 50%;
     width: 50%;
     margin-bottom: 10px;
-    border-radius: 10%;
+    border-radius: 2%;
     margin-left: 50%;
     transform: translate(-50%)
 }

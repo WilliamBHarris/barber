@@ -1,5 +1,5 @@
 .servicesMain {
-  min-height: 100%;
+  min-height: 100vh;
   background: white;
   position: relative;
   overflow-y: visible;
@@ -18,7 +18,7 @@
 .servicesBox {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  height: 76vh;
+  /* height: 76vh; */
   width: 50%;
   margin: auto;
   font-family: "Cerulean NF", sans-serif;
@@ -34,9 +34,8 @@
 
 .services h2 {
   font-size: 24px;
-  letter-spacing: -1px;
   font-weight: 800;
-  margin-bottom: 0px;
+  margin-top: 20px;
   text-align: left;
   text-transform: uppercase;
 }
@@ -68,4 +67,33 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1200px) {
+  .servicesBox {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .services {
+    width: 90%;
+    margin-inline: auto;
+  }
+  h2 {
+    height: fit-content;
+  }
+  .services p {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 16px;
+    font-family: "GT-America-Regular",sans-serif;
+  }
+  .servicesTitle {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 40px;
+    letter-spacing: -2px;
+    font-family: "Cerulean NF", sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
 }

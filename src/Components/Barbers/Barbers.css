@@ -72,7 +72,7 @@
     text-align: center;
     padding-top: 20px;
     position: absolute;
-    font-size: 30px;
+    font-size: (20px, 4vw, 30px);
     width: 100%;
     text-transform: uppercase;
     align-self: flex-start;
@@ -122,3 +122,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media only screen and (max-width: 1200px) {
+    .barbersBox {
+        height: 100%;
+        width: 90%;
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .barbers {
+        height: 100vh;
+        position: relative;
+        cursor: pointer;
+    }
+    .barbersBottom h3 {
+        font-family: "Cerulean NF", sans-serif;
+        text-align: center;
+        padding-top: 0px;
+        position: absolute;
+        font-size: (20px, 4vw, 30px);
+        width: 100%;
+        text-transform: uppercase;
+        align-self: flex-start;
+    }
+  }

@@ -11,13 +11,30 @@
 .aboutBox {
     height: 100vh;
     width: 60%;
-    line-height: 500%;
     display: flex;
     align-items: center;
 }
 
-.aboutBox h1 {
+.aboutBox p {
     font-family: "Cerulean NF", sans-serif;
     font-weight: normal;
     font-size: 3.1rem;
 }
+
+@media only screen and (max-width: 1200px) {
+    .aboutBox p {
+        font-family: "Cerulean NF", sans-serif;
+        font-weight: normal;
+        font-size: clamp(16px, 4vw, 3.1rem);
+        line-height: 40px;
+    }
+    .aboutBox {
+        height: 100%;
+        width: 90%;
+        display: flex;
+        align-items: center;
+    }
+    .aboutMain {
+        height: 100vh;
+    }
+  }

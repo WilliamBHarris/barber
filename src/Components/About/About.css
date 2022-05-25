@@ -25,7 +25,7 @@
     .aboutBox p {
         font-family: "Cerulean NF", sans-serif;
         font-weight: normal;
-        font-size: clamp(16px, 4vw, 3.1rem);
+        font-size: clamp(16px, 3vw, 3.1rem);
         line-height: 40px;
     }
     .aboutBox {

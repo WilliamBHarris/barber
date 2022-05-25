@@ -18,7 +18,6 @@
 .servicesBox {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  /* height: 76vh; */
   width: 50%;
   margin: auto;
   font-family: "Cerulean NF", sans-serif;
@@ -41,19 +40,19 @@
 }
 
 .services i {
-  margin-top: 20px;
   text-align: left;
+  padding: 5px;
 }
 
 .services p {
   margin-top: 20px;
   text-align: left;
   font-size: 20px;
-  font-family: "GT-America-Regular",sans-serif;
+  font-family: "GT-America-Regular", sans-serif;
 }
 
 .services button {
-  width: 25%;
+  width: 80px;
   height: 35px;
   border: none;
   background: red;
@@ -61,7 +60,10 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
+.btnAlign {
+  display: flex;
+  justify-content: flex-start;
+}
 .book {
   position: absolute;
   top: 50%;
@@ -75,17 +77,22 @@
     grid-template-columns: 1fr;
   }
   .services {
-    width: 90%;
+    width: 70%;
     margin-inline: auto;
   }
   h2 {
-    height: fit-content;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .services i {
+    margin-top: 20px;
+    text-align: center;
   }
   .services p {
-    margin-top: 10px;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
-    font-family: "GT-America-Regular",sans-serif;
+    font-family: "GT-America-Regular", sans-serif;
   }
   .servicesTitle {
     text-align: center;
@@ -95,5 +102,25 @@
     font-family: "Cerulean NF", sans-serif;
     text-transform: uppercase;
     margin-bottom: 20px;
+  }
+  .services h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 20px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .services button {
+    height: 35px;
+    border: none;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btnAlign {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 }

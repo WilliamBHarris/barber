@@ -35,7 +35,9 @@ const Barbers = ({setOpen, open}) => {
             <div className="barbersBottom">
                 <h3>Reach Out</h3>
                 <div className="line"></div>
-                <div className="barbersBottomBox">Contact our Tampa, FL location <br /># 777-777-7777</div>
+                <div className="barbersBottomBoxTop">
+                    <p>Contact our Tampa, FL location <br /># 777-777-7777</p>
+                </div>
                 <div className="barbersBottomBox">
                 <h4>Follow us on social media</h4>
                 <h1><AiFillFacebook size={80} /></h1>
@@ -43,7 +45,7 @@ const Barbers = ({setOpen, open}) => {
                 <h1><AiFillFacebook size={80} /></h1>
                 <h1><AiFillFacebook size={80} /></h1>
                  </div>
-                <p>Made by: Will Harris - Copyright &copy; 2022</p>
+                <p className='copy'>Made by: Will Harris - Copyright &copy; 2022</p>
             </div>
         </div>
     )

@@ -19,3 +19,20 @@
     width: 60px;
     padding: 5px;
 }
+
+.amPM {
+    width: 70px;
+    background-color: red;
+}
+
+.btnAlign {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.selected {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100px);
+}

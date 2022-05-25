@@ -18,7 +18,7 @@ const Services = ({setOpen, open}) => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button onClick={() => setOpen(!open)}>Book Now</button>
+         <div className='btnAlign'> <button onClick={() => setOpen(!open)}>Book Now</button></div>
         </div>
         <div className="services">
           <h2>Styling</h2>
@@ -29,7 +29,7 @@ const Services = ({setOpen, open}) => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button onClick={() => setOpen(!open)}>Book Now</button>
+          <div className='btnAlign'><button onClick={() => setOpen(!open)}>Book Now</button></div>
         </div>
         <div className="services">
           <h2>Skin Fade</h2>
@@ -40,7 +40,7 @@ const Services = ({setOpen, open}) => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button onClick={() => setOpen(!open)}>Book Now</button>
+          <div className='btnAlign'><button onClick={() => setOpen(!open)}>Book Now</button></div>
         </div>
         <div className="services">
           <h2>Beard Trim</h2>
@@ -51,7 +51,7 @@ const Services = ({setOpen, open}) => {
             aliquip ex ea commodo consequat
           </p>
           <i>Starting at $25</i>
-          <button onClick={() => setOpen(!open)}>Book Now</button>
+          <div className='btnAlign'><button onClick={() => setOpen(!open)}>Book Now</button></div>
         </div>
       </div>
     </div>
